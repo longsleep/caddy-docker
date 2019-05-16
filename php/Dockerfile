@@ -21,8 +21,8 @@ ARG version="1.0.0"
 LABEL caddy_version="$version"
 
 # PHP www-user UID and GID
-ARG PUID="1000"
-ARG PGID="1000"
+ARG PUID="400"
+ARG PGID="400"
 
 # Let's Encrypt Agreement
 ENV ACME_AGREE="false"
