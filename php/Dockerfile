@@ -1,10 +1,10 @@
 #
-# Builder
+# Builder - 2019051601
 #
 FROM abiosoft/caddy:builder as builder
 
-ARG version="0.11.0"
-ARG plugins="git,filemanager,cors,realip,expires,cache"
+ARG version="1.0.0"
+ARG plugins="git,cors,realip,expires,cache,prometheus,ratelimit"
 
 # process wrapper
 RUN go get -v github.com/abiosoft/parent
@@ -12,12 +12,12 @@ RUN go get -v github.com/abiosoft/parent
 RUN VERSION=${version} PLUGINS=${plugins} /bin/sh /usr/bin/builder.sh
 
 #
-# Final stage
+# Final stage - 2019051601
 #
-FROM alpine:3.7
-LABEL maintainer "Abiola Ibrahim <abiola89@gmail.com>"
+FROM alpine:3.9
+LABEL maintainer "Simon Eisenmann <simon@longsleep.org>"
 
-ARG version="0.11.0"
+ARG version="1.0.0"
 LABEL caddy_version="$version"
 
 # Let's Encrypt Agreement
